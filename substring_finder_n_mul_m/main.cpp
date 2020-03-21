@@ -17,13 +17,13 @@ signed main(int argc, char* argv[]) {
         cout << "Illegal number of arguments" << endl;
         return 0;
     }
-    int32_t str_size = strlen(argv[2]);
-    char* str = argv[2];
+    int32_t str_size = strlen(argv[1]);
+    char* str = argv[1];
     bool mask[str_size];
     for (size_t i = 0; i < str_size; i++) {
         mask[i] = 0;
     }
-    int fd = open(argv[1], O_RDONLY | O_CLOEXEC);
+    int fd = open(argv[2], O_RDONLY | O_CLOEXEC);
     if (fd < 0)
     {
         perror("open failed");
@@ -47,7 +47,7 @@ signed main(int argc, char* argv[]) {
         for (int32_t i = 0; i < bytes_read; i++) {
             char cur_ch = buffer[i];
             if (cur_ch == str[str_size - 1] && mask[str_size - 1]) {
-                ssize_t bytes_written = write(STDOUT_FILENO, "TRUE\n", 5);
+                ssize_t bytes_written = write(STDOUT_FILENO, "true\n", 5);
                 if (bytes_written < 0)
                 {
                     perror("write failed");
@@ -66,7 +66,7 @@ signed main(int argc, char* argv[]) {
             }
         }
     }
-    ssize_t bytes_written = write(STDOUT_FILENO, "FALSE\n", 6);
+    ssize_t bytes_written = write(STDOUT_FILENO, "false\n", 6);
     if (bytes_written < 0)
     {
         perror("write failed");
