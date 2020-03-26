@@ -6,7 +6,7 @@ _start:
 ; ans - r8
 ; first - r9
 ; second - r10
-; loop_counter - r11
+; loop_counter - r12
                 sub             rsp, 3 * 128 * 8
                 lea             rdi, [rsp + 128 * 8]
                 lea             r8, [rsp + 256 * 8]
