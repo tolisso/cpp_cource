@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/tolisso/Programming/cpp_course/big_integer_cpp/big_integer.cpp
+iostream
+-
+algorithm
+-
+sstream
+-
+big_integer.h
+/home/tolisso/Programming/cpp_course/big_integer_cpp/big_integer.h
+
+/home/tolisso/Programming/cpp_course/big_integer_cpp/big_integer.h
+cstddef
+-
+gmp.h
+-
+iosfwd
+-
+functional
+-
+
+/home/tolisso/Programming/cpp_course/big_integer_cpp/main.cpp
+iostream
+-
+big_integer.cpp
+/home/tolisso/Programming/cpp_course/big_integer_cpp/big_integer.cpp
+
