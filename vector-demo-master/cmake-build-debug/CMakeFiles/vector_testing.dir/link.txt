@@ -1,0 +1,1 @@
+/usr/bin/c++   -Wall -Wno-sign-compare -std=c++11 -pedantic -g -fsanitize=address,undefined -D_GLIBCXX_DEBUG  -rdynamic CMakeFiles/vector_testing.dir/main.cpp.o CMakeFiles/vector_testing.dir/gtest/gtest-all.cc.o CMakeFiles/vector_testing.dir/gtest/gtest_main.cc.o  -o vector_testing -lpthread 

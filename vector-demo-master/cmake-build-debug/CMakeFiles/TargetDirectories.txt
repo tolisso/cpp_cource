@@ -1,0 +1,3 @@
+/home/tolisso/Programming/cpp_course/vector-demo-master/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/tolisso/Programming/cpp_course/vector-demo-master/cmake-build-debug/CMakeFiles/vector_testing.dir
+/home/tolisso/Programming/cpp_course/vector-demo-master/cmake-build-debug/CMakeFiles/edit_cache.dir
