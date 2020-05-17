@@ -37,7 +37,6 @@ struct vector
                 new(new_data + i) T(other[i]);
             }
         } catch (std::exception const& exc) {
-            std::cout << 2 << std::endl;
             for (size_t j = 0; j < i; j++) {
                 new_data[j].~T();
             }
@@ -220,7 +219,6 @@ private:
                 new(new_data + i) T(data_[i]);
             }
         } catch (std::exception const& exc) {
-            std::cout << 1 << std::endl;
             for (size_t j = 0; j < i; j++) {
                 new_data[j].~T();
             }
