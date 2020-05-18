@@ -1,4 +1,4 @@
-# Install script for directory: /home/tolisso/Programming/cpp_course/big_integer_HW3_tests[1]/cpp-course-master/bigint
+# Install script for directory: /home/tolisso/Programming/cpp_course/big_integer_HW3_tests/cpp-course-master/bigint
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/tolisso/Programming/cpp_course/big_integer_HW3_tests[1]/cpp-course-master/bigint/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/tolisso/Programming/cpp_course/big_integer_HW3_tests/cpp-course-master/bigint/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

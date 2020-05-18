@@ -6,5 +6,5 @@ CXX_FLAGS =  -Wall -std=c++11 -pedantic -g -fsanitize=address,undefined -D_GLIBC
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/tolisso/Programming/cpp_course/big_integer_HW3_tests[1]/cpp-course-master/bigint 
+CXX_INCLUDES = -I/home/tolisso/Programming/cpp_course/big_integer_HW3_tests/cpp-course-master/bigint 
 
