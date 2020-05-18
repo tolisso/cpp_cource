@@ -1,3 +1,0 @@
-/home/tolisso/Programming/cpp_course/SorokinFilesNew/cpp-course-master/bigint/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/tolisso/Programming/cpp_course/SorokinFilesNew/cpp-course-master/bigint/cmake-build-debug/CMakeFiles/big_integer_testing.dir
-/home/tolisso/Programming/cpp_course/SorokinFilesNew/cpp-course-master/bigint/cmake-build-debug/CMakeFiles/edit_cache.dir

@@ -1,4 +1,1 @@
-/home/tolisso/Programming/clion-2019.2.5/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/tolisso/Programming/cpp_course/SorokinFilesNew/cpp-course-master/bigint
--- Configuring done
--- Generating done
--- Build files have been written to: /home/tolisso/Programming/cpp_course/SorokinFilesNew/cpp-course-master/bigint/cmake-build-debug
+CMakeLists.txt not found in /home/tolisso/Programming/cpp_course/big_arithmetic_tests/cpp-course-master/bigint Select CMakeLists.txt file...

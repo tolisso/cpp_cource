@@ -6,13 +6,30 @@
 #include <iosfwd>
 #include <functional>
 
+struct array_ {
+public:
+    array_(size_t size);
+    array_(array_ const&);
+    uint32_t& operator[](size_t);
+    uint32_t const& operator[](size_t) const;
+    void set(size_t, uint32_t);
+    size_t const size() const;
+    array_& operator=(array_ const&);
+    ~array_();
+    void swap(array_ &);
+
+private:
+    size_t size_;
+    uint32_t* refs;
+    uint32_t* arr;
+};
+
 struct big_integer
 {
     big_integer();
     big_integer(big_integer const& other);
     big_integer(int a);
     explicit big_integer(std::string const& str);
-    ~big_integer();
 
     big_integer& operator=(big_integer const& other);
 
@@ -64,12 +81,12 @@ struct big_integer
     friend big_integer operator>>(big_integer const& a, int b);
 
 private:
-    uint32_t* num_arr;
-    size_t size;
+    array_ num_arr;
+    bool sign;
+
 
     friend big_integer binary_func(big_integer a, big_integer b, std::function<uint32_t(uint32_t, uint32_t)> func);
 
-    bool sign;
     bool isZeroes(big_integer const& other) const;
     big_integer resized(size_t new_size) const;
     big_integer strip();
@@ -88,8 +105,9 @@ private:
     big_integer unsigned_binary() const;
     big_integer negated() const;
     big_integer abs() const;
-
+    bool check_string(std::string const& str);
 };
+
 
 
 

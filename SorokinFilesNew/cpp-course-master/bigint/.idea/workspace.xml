@@ -10,10 +10,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b9915025-b5ef-4ad4-a893-54b32c31bc7c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../../../big_integer_cpp/big_integer.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../big_integer_cpp/big_integer.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../big_arithmetic_tests/cpp-course-master/bigint/cmake-build-debug/BIGINT.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../big_arithmetic_tests/cpp-course-master/bigint/cmake-build-debug/BIGINT.cbp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../big_arithmetic_tests/cpp-course-master/bigint/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../big_arithmetic_tests/cpp-course-master/bigint/cmake-build-debug/CMakeCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../big_arithmetic_tests/cpp-course-master/bigint/cmake-build-debug/CMakeFiles/3.15.3/CMakeSystem.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../../big_arithmetic_tests/cpp-course-master/bigint/cmake-build-debug/CMakeFiles/3.15.3/CMakeSystem.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../big_arithmetic_tests/cpp-course-master/bigint/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../../big_arithmetic_tests/cpp-course-master/bigint/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../big_arithmetic_tests/cpp-course-master/bigint/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/../../../big_arithmetic_tests/cpp-course-master/bigint/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../big_arithmetic_tests/cpp-course-master/bigint/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../../big_arithmetic_tests/cpp-course-master/bigint/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../big_arithmetic_tests/cpp-course-master/bigint/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/../../../big_arithmetic_tests/cpp-course-master/bigint/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../big_arithmetic_tests/cpp-course-master/bigint/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../big_arithmetic_tests/cpp-course-master/bigint/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../big_arithmetic_tests/cpp-course-master/bigint/cmake-build-debug/CMakeFiles/big_integer_testing.dir/CXX.includecache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../big_arithmetic_tests/cpp-course-master/bigint/cmake-build-debug/CMakeFiles/big_integer_testing.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../../big_arithmetic_tests/cpp-course-master/bigint/cmake-build-debug/CMakeFiles/big_integer_testing.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../big_arithmetic_tests/cpp-course-master/bigint/cmake-build-debug/CMakeFiles/big_integer_testing.dir/big_integer.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../big_arithmetic_tests/cpp-course-master/bigint/cmake-build-debug/CMakeFiles/big_integer_testing.dir/big_integer_testing.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../big_arithmetic_tests/cpp-course-master/bigint/cmake-build-debug/CMakeFiles/big_integer_testing.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../../big_arithmetic_tests/cpp-course-master/bigint/cmake-build-debug/CMakeFiles/big_integer_testing.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../big_arithmetic_tests/cpp-course-master/bigint/cmake-build-debug/CMakeFiles/big_integer_testing.dir/depend.internal" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../big_arithmetic_tests/cpp-course-master/bigint/cmake-build-debug/CMakeFiles/big_integer_testing.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../../big_arithmetic_tests/cpp-course-master/bigint/cmake-build-debug/CMakeFiles/big_integer_testing.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../big_arithmetic_tests/cpp-course-master/bigint/cmake-build-debug/CMakeFiles/big_integer_testing.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../../big_arithmetic_tests/cpp-course-master/bigint/cmake-build-debug/CMakeFiles/big_integer_testing.dir/flags.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../big_arithmetic_tests/cpp-course-master/bigint/cmake-build-debug/CMakeFiles/big_integer_testing.dir/gtest/gtest-all.cc.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../big_arithmetic_tests/cpp-course-master/bigint/cmake-build-debug/CMakeFiles/big_integer_testing.dir/gtest/gtest_main.cc.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../big_arithmetic_tests/cpp-course-master/bigint/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../big_arithmetic_tests/cpp-course-master/bigint/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../big_arithmetic_tests/cpp-course-master/bigint/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/../../../big_arithmetic_tests/cpp-course-master/bigint/cmake-build-debug/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../big_arithmetic_tests/cpp-course-master/bigint/cmake-build-debug/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../../big_arithmetic_tests/cpp-course-master/bigint/cmake-build-debug/cmake_install.cmake" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../edb-debugger" beforeDir="false" afterPath="$PROJECT_DIR$/../../../edb-debugger" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../substring_finder_n_mul_m/a.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../vector-demo-master/cmake-build-debug/CMakeFiles/vector_testing.dir/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../../../vector-demo-master/cmake-build-debug/CMakeFiles/vector_testing.dir/main.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../vector-demo-master/cmake-build-debug/vector_testing" beforeDir="false" afterPath="$PROJECT_DIR$/../../../vector-demo-master/cmake-build-debug/vector_testing" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -110,6 +130,7 @@
       <workItem from="1588864401709" duration="2197000" />
       <workItem from="1588869870765" duration="2337000" />
       <workItem from="1589098602371" duration="2610000" />
+      <workItem from="1589703224374" duration="37000" />
     </task>
     <servers />
   </component>
