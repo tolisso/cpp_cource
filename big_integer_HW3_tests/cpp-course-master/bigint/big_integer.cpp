@@ -34,14 +34,14 @@ big_integer big_integer::resized(size_t new_size) const {
     array_ new_arr(new_size);
     if (new_size <= num_arr.size_) {
         for (size_t i = 0; i < new_size; i++) {
-            new_arr.set(i, num_arr[i]);
+            new_arr[i] = num_arr[i];
         }
     } else {
         for (size_t i = 0; i < num_arr.size_; i++) {
-            new_arr.set(i, num_arr[i]);
+            new_arr[i] = num_arr[i];
         }
         for (size_t i = num_arr.size_; i < new_size; i++) {
-            new_arr.set(i, 0);
+            new_arr[i] = 0;
         }
     }
     big_integer ans(0);
@@ -55,7 +55,12 @@ big_integer big_integer::strip() {
     while (new_size != 1 && num_arr[new_size - 1] == 0) {
         new_size--;
     }
-    return this->resized(new_size);
+    if (num_arr.size_ > 4 && new_size > 4) {
+        num_arr.size_ = new_size;
+        return *this;
+    } else {
+        return resized(new_size);
+    }
 }
 
 /// modify bigint
@@ -70,7 +75,7 @@ big_integer big_integer::strip() {
 
 
 
-bool bigger_by_mod(big_integer a, big_integer b) {
+bool bigger_by_mod(big_integer const& a, big_integer const& b) {
     if (a.num_arr.size_ < b.num_arr.size_) {
         return true;
     } else if (a.num_arr.size_ > b.num_arr.size_) {
@@ -86,8 +91,11 @@ bool bigger_by_mod(big_integer a, big_integer b) {
 }
 
 big_integer big_integer::add_big_integer(big_integer const& val) const {
-    big_integer a(0);
-    big_integer b(0);
+    if (this->sign != val.sign) {
+        return sub_big_integer(val.negated());
+    }
+    big_integer a;
+    big_integer b;
     if (this->num_arr.size_ < val.num_arr.size_) {
         a = val;
         b = *this;
@@ -95,26 +103,28 @@ big_integer big_integer::add_big_integer(big_integer const& val) const {
         a = *this;
         b = val;
     }
-    if (a.sign != b.sign) {
-        return a.sub_big_integer(b.negated());
-    }
+
     b = b.resized(a.num_arr.size_);
 
     /// a & b have the same num_arr.size_
-    auto ans = a;
+    big_integer ans;
+    ans.unique_eq(a);
     uint32_t remainder = 0;
     for (size_t i = 0; i < a.num_arr.size_; i++) {
-        ans.num_arr.set(i, (a.num_arr[i] + b.num_arr[i] + remainder));
+        ans.num_arr[i] = (a.num_arr[i] + b.num_arr[i] + remainder);
         remainder = (static_cast<uint64_t>(a.num_arr[i]) + b.num_arr[i] + remainder) >> 32;
     }
     if (remainder != 0) {
         ans = ans.resized(ans.num_arr.size_ + 1);
-        ans.num_arr.set(ans.num_arr.size_ - 1, remainder);
+        ans.num_arr[ans.num_arr.size_ - 1] = remainder;
     }
     return ans;
 }
 
 big_integer big_integer::sub_big_integer(big_integer const& val) const {
+    if (sign != val.sign) {
+        return add_big_integer(val.negated());
+    }
     big_integer a(0);
     big_integer b(0);
     if (bigger_by_mod(*this, val)) {
@@ -124,17 +134,15 @@ big_integer big_integer::sub_big_integer(big_integer const& val) const {
         a = *this;
         b = val;
     }
-    if (a.sign != b.sign) {
-        big_integer negated_b = b.negated();
-        return a.add_big_integer(negated_b);
-    }
+
     b = b.resized(a.num_arr.size_);
 
     /// a & b have the same num_arr.size_
-    auto ans = a;
+    big_integer ans;
+    ans.unique_eq(a);
     uint32_t remainder = 0;
     for (size_t i = 0; i < a.num_arr.size_; i++) {
-        ans.num_arr.set(i, a.num_arr[i] - b.num_arr[i] - remainder);
+        ans.num_arr[i] = a.num_arr[i] - b.num_arr[i] - remainder;
         if (a.num_arr[i] >= b.num_arr[i] + remainder) {
             remainder = 0;
         } else {
@@ -146,11 +154,12 @@ big_integer big_integer::sub_big_integer(big_integer const& val) const {
 
 big_integer big_integer::div_int(uint32_t divisor) const {
     big_integer ans(*this);
+    ans.num_arr.make_unique();
     uint64_t remainder = 0;
     for (size_t i = num_arr.size_ - 1; true; i--) {
         remainder <<= 32;
         remainder += num_arr[i];
-        ans.num_arr.set(i, remainder / divisor);
+        ans.num_arr[i] = remainder / divisor;
         remainder %= divisor;
         if (i == 0) {
             break;
@@ -177,32 +186,41 @@ big_integer big_integer::mul_int(uint32_t val) const {
     if (val == 0) {
         return 0;
     }
-    big_integer ans(*this);
+    big_integer ans;
+    ans.unique_eq(*this);
     uint64_t remainder = 0;
     for (size_t i = 0; i < num_arr.size_; i++) {
         uint64_t cur_num = (static_cast<uint64_t>(num_arr[i]) * val + remainder);
-        ans.num_arr.set(i, static_cast<uint32_t>(cur_num));
+        ans.num_arr[i] = cur_num;
         remainder = (cur_num >> 32);
     }
-    while (remainder != 0) {
+    if (remainder != 0) {
         ans = ans.resized(ans.num_arr.size_ + 1);
-        ans.num_arr.set(ans.num_arr.size_ - 1, remainder);
+        ans.num_arr[ans.num_arr.size_ - 1] = remainder;
         remainder >>= 32;
     }
     return ans;
 }
 
 big_integer big_integer::mul_big_integer(big_integer const& val) const {
-    big_integer a = *this;
-    big_integer b = val;
-    if (a < 0) {
-        a = a.negated();
+    if (val.num_arr.size_ == 1) {
+        big_integer ans(mul_int(val.num_arr[0]));
+        ans.sign = sign ^ val.sign;
+        return ans;
     }
-    if (b < 0) {
-        b = b.negated();
+    if (num_arr.size_ == 1) {
+        big_integer ans(val.mul_int(num_arr[0]));
+        ans.sign = sign ^ val.sign;
+        return ans;
     }
-    if (bigger_by_mod(a, b)) {
-        std::swap(a, b);
+    big_integer a;
+    big_integer b;
+    if (bigger_by_mod(*this, val)) {
+        a = val.abs();
+        b = this->abs();
+    } else {
+        a = this->abs();
+        b = val.abs();
     }
     big_integer ans;
     ans = ans.resized(a.num_arr.size_ + b.num_arr.size_ + 1);
@@ -213,12 +231,12 @@ big_integer big_integer::mul_big_integer(big_integer const& val) const {
         for (size_t j = 0; j < c.num_arr.size_; j++) {
             uint64_t new_val = remainder + ans.num_arr[i + j] + c.num_arr[j];
             remainder = new_val >> 32;
-            ans.num_arr.set(i + j, new_val);
+            ans.num_arr[i + j] = new_val;
         }
         for (size_t j = c.num_arr.size_; remainder != 0; j++) {
             uint64_t new_val = remainder + ans.num_arr[i + j];
             remainder = new_val >> 32;
-            ans.num_arr.set(i + j, new_val);
+            ans.num_arr[i + j] = new_val;
         }
     }
     ans.sign = this->sign != val.sign;
@@ -226,51 +244,50 @@ big_integer big_integer::mul_big_integer(big_integer const& val) const {
 }
 
 big_integer big_integer::div_big_integer(big_integer const& val) const {
-    big_integer x(*this);
-    big_integer y(val);
-    uint64_t f = (static_cast<uint64_t >(1) << 32) / (static_cast<uint64_t >(y.num_arr[y.num_arr.size_ - 1]) + 1);
-    big_integer r = x.mul_big_integer(f).abs();
-    big_integer d = y.mul_big_integer(f).abs();
-    if (r < 0) {
-        r = r.negated();
+    if (this->num_arr.size_ < val.num_arr.size_) {
+        return 0;
     }
-    if (d < 0) {
-        d = d.negated();
-    }
-    if (x.num_arr.size_ < y.num_arr.size_) {
-        big_integer ans(0);
-        return ans;
-    }
-//    if (x.num_arr.size_ == y.num_arr.size_) {
-//        return x.div_big_integer_slow(y);
+    uint64_t f = (1ll << 32) / (static_cast<uint64_t >(val.num_arr[val.num_arr.size_ - 1]) + 1);
+    big_integer r = this->mul_big_integer(f).abs();
+    big_integer d = val.mul_big_integer(f).abs();
+//    if (this->num_arr.size_ == val.num_arr.size_) {
+//        return this->div_big_integer_slow(y);
 //    }
-    if (y.num_arr.size_ == 1) {
-        big_integer ans = x.div_int(y.num_arr[0]);
-        ans.sign = x.sign != y.sign;
+    if (val.num_arr.size_ == 1) {
+        big_integer ans = this->div_int(val.num_arr[0]);
+        ans.sign = this->sign != val.sign;
         return ans;
     }
     big_integer q(0);
-    size_t q_size = x.num_arr.size_ - y.num_arr.size_ + 2;
+    size_t q_size = this->num_arr.size_ - val.num_arr.size_ + 2;
     q = q.resized(q_size);
     size_t n = r.num_arr.size_ + 1;
     r = r.resized(n);
     size_t m = d.num_arr.size_;
 
     for (size_t k = n - m - 1; ; k--) {
-        big_integer r3_bi = r.get_pref_not_leading(m + k, 3).resized(3);
-        big_integer d2_bi = d.get_pref_not_leading(m - 1, 2).resized(2);
         /// if your compilator hasn't got __int128 please use gmp mpz_t, logics still the same,
         /// because r3, d2 not more than 2^96
         __int128 r3 = 0;
         __int128 d2 = 0;
-        r3 += r3_bi.num_arr[2];
+        if (m + k >= 0) {
+            r3 += r.num_arr[m + k];
+        }
         r3 <<= 32;
-        r3 += r3_bi.num_arr[1];
+        if (m + k - 1 >= 0) {
+            r3 += r.num_arr[m + k - 1];
+        }
         r3 <<= 32;
-        r3 += r3_bi.num_arr[0];
-        d2 += d2_bi.num_arr[1];
+        if (m + k - 2 >= 0) {
+            r3 += r.num_arr[m + k - 2];
+        }
+        if (m - 1 >= 0) {
+            d2 += d.num_arr[m - 1];
+        }
         d2 <<= 32;
-        d2 += d2_bi.num_arr[0];
+        if (m - 2 >= 0) {
+            d2 += d.num_arr[m - 2];
+        }
 //        mpz_t r3;
 //        mpz_t d2;
 //        mpz_t result;
@@ -290,30 +307,29 @@ big_integer big_integer::div_big_integer(big_integer const& val) const {
 //        uint32_t ans = mpz_get_ui(result);
 
         uint32_t qt = r3 / d2;
-        big_integer dq = d.mul_int(qt).strip();
+        big_integer dq = d.mul_int(qt);
         if (dq > r.get_pref_not_leading(m + k, m + 1).strip()) {
             qt--;
             dq = d.mul_int(qt);
         }
 //        std::cout << "qt, dq and r_pref" << std::endl;
 //        std::cout << qt << std::endl;
-        q.num_arr.set(k, qt);
+        q.num_arr[k] = qt;
 //        (dq).print_num_arr();
 //        r.get_pref_not_leading(m + k, m + 1).print_num_arr();
 //        std::cout << std::endl;
 
 
-        big_integer r_sub = r.get_pref_not_leading(m + k, m + 1).strip() - dq;
-        r_sub = r_sub.resized(m + 1);
+        big_integer r_sub;
+        r_sub.unique_eq((r.get_pref_not_leading(m + k, m + 1).strip() - dq).resized(m + 1));
 
-        dq = dq.resized(m + 1);
 //        std::cout << "r_sub: ";
 //        r_sub.print_num_arr();
 //        std::cout << r_sub.num_arr.size_ << std::endl;
         for (size_t i = m + k - 1; ; i--) {
 //            std::cout << i << ":i   i - k: " << i - k << " sizes: " << r.num_arr.size_ << ' ' << r_sub.num_arr.size_ <<  std::endl;
 //            std::cout << r.num_arr[i] << ' ' << r_sub.num_arr[i - k] << " - r : r_sub" << std::endl;
-            r.num_arr.set(i, r_sub.num_arr[i - k]);
+            r.num_arr[i] = r_sub.num_arr[i - k];
             if (i == m + k - r_sub.num_arr.size_ || i - k == 0) {
                 break;
             }
@@ -322,7 +338,7 @@ big_integer big_integer::div_big_integer(big_integer const& val) const {
             break;
         }
     }
-    q.sign = x.sign != y.sign;
+    q.sign = this->sign != val.sign;
     return q.strip();
 }
 
@@ -340,9 +356,9 @@ big_integer big_integer::get_pref_not_leading(size_t from ,size_t pref_length) c
             break;
         }
         if (from >= i) {
-            ans.num_arr.set(length - 1 - i, num_arr[from - i]);
+            ans.num_arr[length - 1 - i] = num_arr[from - i];
         } else {
-            ans.num_arr.set(length - 1 - i, 0);
+            ans.num_arr[length - 1 - i] = 0;
         }
     }
     return ans;
@@ -354,9 +370,9 @@ big_integer big_integer::get_pref(size_t from ,size_t pref_length) const {
 
     for (size_t i = 0; i < pref_length; i++) {
         if (from >= i) {
-            ans.num_arr.set(pref_length - 1 - i, num_arr[from - i]);
+            ans.num_arr[pref_length - 1 - i] = num_arr[from - i];
         } else {
-            ans.num_arr.set(pref_length - 1 - i, 0);
+            ans.num_arr[pref_length - 1 - i] = 0;
         }
     }
     return ans;
@@ -430,12 +446,18 @@ big_integer big_integer::unsigned_binary() const {
 
 big_integer::big_integer() : num_arr(1) {
     sign = false;
-    num_arr.set(0, 0);
+    num_arr[0] = 0;
     num_arr.size_ = 1;
 }
+
+void big_integer::unique_eq(big_integer const & other) {
+    num_arr.equal(other.num_arr);
+    sign = other.sign;
+}
+
 big_integer::big_integer(int val) : num_arr(1){
     if (val == INT32_MIN) {
-        num_arr.set(0, static_cast<uint32_t >(INT32_MAX) + 1);
+        num_arr[0] = static_cast<uint32_t >(INT32_MAX) + 1;
         sign = true;
         num_arr.size_ = 1;
     } else {
@@ -446,14 +468,14 @@ big_integer::big_integer(int val) : num_arr(1){
             val = -val;
         }
         num_arr.size_ = 1;
-        num_arr.set(0, val);
+        num_arr[0] = val;
     }
 }
+
 big_integer::big_integer(big_integer const& bi) : num_arr(bi.num_arr) {
-    if (this != &bi) {
-        sign = bi.sign;
-    }
+    sign = bi.sign;
 }
+
 big_integer::big_integer(std::string const &str) : num_arr(1) {
     if (!check_string(str)) {
         throw std::runtime_error("bad string exception");
@@ -621,10 +643,8 @@ big_integer big_integer::operator-() const {
     return this->negated();
 }
 big_integer& big_integer::operator=(big_integer const& other) {
-    if (this != &other) {
-        num_arr = other.num_arr;
-        sign = other.sign;
-    }
+    num_arr = other.num_arr;
+    sign = other.sign;
     return *this;
 }
 big_integer big_integer::negated() const {
@@ -670,63 +690,142 @@ std::ostream& operator<<(std::ostream& s, big_integer const& a) {
 }
 
 array_::array_(size_t size) {
-    arr = new uint32_t[size];
-    refs = new uint32_t(1);
+    if (size > 4) {
+        big.arr = new uint32_t[size];
+        big.refs = new uint32_t(1);
+    }
     size_ = size;
 }
 
 array_::array_(array_ const& other) {
-    arr = other.arr;
-    refs = other.refs;
+    if (other.size_ > 4) {
+        big.arr = other.big.arr;
+        big.refs = other.big.refs;
+        (*big.refs)++;
+    } else {
+        small.arr.equal(other.small.arr, other.size_);
+    }
     size_ = other.size_;
-    (*refs)++;
 }
 
 array_& array_::operator=(array_ const& other) {
-    arr = other.arr;
-    refs = other.refs;
+    if (size_ > 4) {
+        if (--(*big.refs) == 0) {
+            delete[] big.arr;
+            delete big.refs;
+        }
+    }
+    if (other.size_ > 4) {
+        big.arr = other.big.arr;
+        big.refs = other.big.refs;
+        (*other.big.refs)++;
+    } else {
+        small.arr.equal(other.small.arr, other.size_);
+    }
     size_ = other.size_;
-    (*refs)++;
     return *this;
 }
 
 array_::~array_() {
-    (*refs)--;
-    if (*refs == 0) {
-        delete[] arr;
-        delete refs;
+    if (size_ > 4) {
+        if (--(*big.refs) == 0) {
+            delete[] big.arr;
+            delete big.refs;
+        }
     }
 }
 
-uint32_t array_::operator[](size_t i) {
-    return arr[i];
+uint32_t& array_::operator[](size_t i) {
+    if (size_ <= 4) {
+        return small.arr[i];
+    }
+    return big.arr[i];
 }
 
-uint32_t const array_::operator[](size_t i) const {
-    return arr[i];
+uint32_t const& array_::operator[](size_t i) const {
+    if (size_ <= 4) {
+        return small.arr[i];
+    }
+    return big.arr[i];
 }
 
 void array_::set(size_t i, uint32_t val) {
-    if (*refs != 1) {
+    if (size_ <= 4) {
+        small.arr[i] = val;
+    } else {
+        if (*big.refs != 1) {
 //        std::cout << *refs << std::endl;
-        (*refs)--;
+            (*big.refs)--;
+            auto new_arr = new uint32_t[size_];
+
+            for (size_t i = 0; i < size_; i++) {
+                new_arr[i] = big.arr[i];
+            }
+            big.refs = new uint32_t(1);
+            big.arr = new_arr;
+        }
+        big.arr[i] = val;
+    }
+}
+
+void array_::make_unique() {
+    if (size_ > 4 && *big.refs != 1) {
+//        std::cout << *refs << std::endl;
+        (*big.refs)--;
         auto new_arr = new uint32_t[size_];
 
         for (size_t i = 0; i < size_; i++) {
-            new_arr[i] = arr[i];
+            new_arr[i] = big.arr[i];
         }
-        refs = new uint32_t(1);
-        arr = new_arr;
+        big.refs = new uint32_t(1);
+        big.arr = new_arr;
     }
-    arr[i] = val;
 }
 
-void array_::swap(array_ & other) {
-    std::swap(arr, other.arr);
-    std::swap(size_, other.size_);
-    std::swap(refs, other.refs);
+void array_::equal(array_ const & other) {
+    size_ = other.size_;
+    if (size_ > 4) {
+        big.arr = new uint32_t[other.size_];
+        for (size_t i = 0; i < size_; i++) {
+            big.arr[i] = other.big.arr[i];
+        }
+        big.refs = new uint32_t(1);
+    } else {
+        small.arr = other.small.arr;
+    }
 }
 
-size_t const array_::size() const {
-    return size_;
+
+uint32_t& small_arr::operator[](size_t i) {
+    if (i == 0) {
+        return _0;
+    } else if (i == 1) {
+        return _1;
+    } else if (i == 2) {
+        return _2;
+    }
+    return _3;
+}
+
+uint32_t const& small_arr::operator[](size_t i) const {
+    if (i == 0) {
+        return _0;
+    } else if (i == 1) {
+        return _1;
+    } else if (i == 2) {
+        return _2;
+    }
+    return _3;
+}
+inline void small_arr::equal(small_arr const & other, size_t const&size) {
+    switch(size) {
+        case 4:
+            _3 = other._3;
+        case 3:
+            _2 = other._2;
+        case 2:
+            _1 = other._1;
+        case 1:
+            _0 = other._0;
+    }
 }

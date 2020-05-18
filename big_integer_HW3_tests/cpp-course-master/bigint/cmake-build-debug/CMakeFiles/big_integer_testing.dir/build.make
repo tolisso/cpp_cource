@@ -43,10 +43,10 @@ RM = /home/tolisso/Programming/clion-2019.2.5/bin/cmake/linux/bin/cmake -E remov
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/tolisso/Programming/cpp_course/big_integer_HW3_tests/cpp-course-master/bigint
+CMAKE_SOURCE_DIR = /home/tolisso/Programming/cpp_course/big_integer_HW3_tests[1]/cpp-course-master/bigint
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/tolisso/Programming/cpp_course/big_integer_HW3_tests/cpp-course-master/bigint/cmake-build-debug
+CMAKE_BINARY_DIR = /home/tolisso/Programming/cpp_course/big_integer_HW3_tests[1]/cpp-course-master/bigint/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/big_integer_testing.dir/depend.make
@@ -59,55 +59,55 @@ include CMakeFiles/big_integer_testing.dir/flags.make
 
 CMakeFiles/big_integer_testing.dir/big_integer_testing.cpp.o: CMakeFiles/big_integer_testing.dir/flags.make
 CMakeFiles/big_integer_testing.dir/big_integer_testing.cpp.o: ../big_integer_testing.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tolisso/Programming/cpp_course/big_integer_HW3_tests/cpp-course-master/bigint/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/big_integer_testing.dir/big_integer_testing.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/big_integer_testing.dir/big_integer_testing.cpp.o -c /home/tolisso/Programming/cpp_course/big_integer_HW3_tests/cpp-course-master/bigint/big_integer_testing.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tolisso/Programming/cpp_course/big_integer_HW3_tests[1]/cpp-course-master/bigint/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/big_integer_testing.dir/big_integer_testing.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/big_integer_testing.dir/big_integer_testing.cpp.o -c /home/tolisso/Programming/cpp_course/big_integer_HW3_tests[1]/cpp-course-master/bigint/big_integer_testing.cpp
 
 CMakeFiles/big_integer_testing.dir/big_integer_testing.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/big_integer_testing.dir/big_integer_testing.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tolisso/Programming/cpp_course/big_integer_HW3_tests/cpp-course-master/bigint/big_integer_testing.cpp > CMakeFiles/big_integer_testing.dir/big_integer_testing.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tolisso/Programming/cpp_course/big_integer_HW3_tests[1]/cpp-course-master/bigint/big_integer_testing.cpp > CMakeFiles/big_integer_testing.dir/big_integer_testing.cpp.i
 
 CMakeFiles/big_integer_testing.dir/big_integer_testing.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/big_integer_testing.dir/big_integer_testing.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tolisso/Programming/cpp_course/big_integer_HW3_tests/cpp-course-master/bigint/big_integer_testing.cpp -o CMakeFiles/big_integer_testing.dir/big_integer_testing.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tolisso/Programming/cpp_course/big_integer_HW3_tests[1]/cpp-course-master/bigint/big_integer_testing.cpp -o CMakeFiles/big_integer_testing.dir/big_integer_testing.cpp.s
 
 CMakeFiles/big_integer_testing.dir/big_integer.cpp.o: CMakeFiles/big_integer_testing.dir/flags.make
 CMakeFiles/big_integer_testing.dir/big_integer.cpp.o: ../big_integer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tolisso/Programming/cpp_course/big_integer_HW3_tests/cpp-course-master/bigint/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/big_integer_testing.dir/big_integer.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/big_integer_testing.dir/big_integer.cpp.o -c /home/tolisso/Programming/cpp_course/big_integer_HW3_tests/cpp-course-master/bigint/big_integer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tolisso/Programming/cpp_course/big_integer_HW3_tests[1]/cpp-course-master/bigint/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/big_integer_testing.dir/big_integer.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/big_integer_testing.dir/big_integer.cpp.o -c /home/tolisso/Programming/cpp_course/big_integer_HW3_tests[1]/cpp-course-master/bigint/big_integer.cpp
 
 CMakeFiles/big_integer_testing.dir/big_integer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/big_integer_testing.dir/big_integer.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tolisso/Programming/cpp_course/big_integer_HW3_tests/cpp-course-master/bigint/big_integer.cpp > CMakeFiles/big_integer_testing.dir/big_integer.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tolisso/Programming/cpp_course/big_integer_HW3_tests[1]/cpp-course-master/bigint/big_integer.cpp > CMakeFiles/big_integer_testing.dir/big_integer.cpp.i
 
 CMakeFiles/big_integer_testing.dir/big_integer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/big_integer_testing.dir/big_integer.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tolisso/Programming/cpp_course/big_integer_HW3_tests/cpp-course-master/bigint/big_integer.cpp -o CMakeFiles/big_integer_testing.dir/big_integer.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tolisso/Programming/cpp_course/big_integer_HW3_tests[1]/cpp-course-master/bigint/big_integer.cpp -o CMakeFiles/big_integer_testing.dir/big_integer.cpp.s
 
 CMakeFiles/big_integer_testing.dir/gtest/gtest-all.cc.o: CMakeFiles/big_integer_testing.dir/flags.make
 CMakeFiles/big_integer_testing.dir/gtest/gtest-all.cc.o: ../gtest/gtest-all.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tolisso/Programming/cpp_course/big_integer_HW3_tests/cpp-course-master/bigint/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/big_integer_testing.dir/gtest/gtest-all.cc.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/big_integer_testing.dir/gtest/gtest-all.cc.o -c /home/tolisso/Programming/cpp_course/big_integer_HW3_tests/cpp-course-master/bigint/gtest/gtest-all.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tolisso/Programming/cpp_course/big_integer_HW3_tests[1]/cpp-course-master/bigint/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/big_integer_testing.dir/gtest/gtest-all.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/big_integer_testing.dir/gtest/gtest-all.cc.o -c /home/tolisso/Programming/cpp_course/big_integer_HW3_tests[1]/cpp-course-master/bigint/gtest/gtest-all.cc
 
 CMakeFiles/big_integer_testing.dir/gtest/gtest-all.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/big_integer_testing.dir/gtest/gtest-all.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tolisso/Programming/cpp_course/big_integer_HW3_tests/cpp-course-master/bigint/gtest/gtest-all.cc > CMakeFiles/big_integer_testing.dir/gtest/gtest-all.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tolisso/Programming/cpp_course/big_integer_HW3_tests[1]/cpp-course-master/bigint/gtest/gtest-all.cc > CMakeFiles/big_integer_testing.dir/gtest/gtest-all.cc.i
 
 CMakeFiles/big_integer_testing.dir/gtest/gtest-all.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/big_integer_testing.dir/gtest/gtest-all.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tolisso/Programming/cpp_course/big_integer_HW3_tests/cpp-course-master/bigint/gtest/gtest-all.cc -o CMakeFiles/big_integer_testing.dir/gtest/gtest-all.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tolisso/Programming/cpp_course/big_integer_HW3_tests[1]/cpp-course-master/bigint/gtest/gtest-all.cc -o CMakeFiles/big_integer_testing.dir/gtest/gtest-all.cc.s
 
 CMakeFiles/big_integer_testing.dir/gtest/gtest_main.cc.o: CMakeFiles/big_integer_testing.dir/flags.make
 CMakeFiles/big_integer_testing.dir/gtest/gtest_main.cc.o: ../gtest/gtest_main.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tolisso/Programming/cpp_course/big_integer_HW3_tests/cpp-course-master/bigint/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/big_integer_testing.dir/gtest/gtest_main.cc.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/big_integer_testing.dir/gtest/gtest_main.cc.o -c /home/tolisso/Programming/cpp_course/big_integer_HW3_tests/cpp-course-master/bigint/gtest/gtest_main.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tolisso/Programming/cpp_course/big_integer_HW3_tests[1]/cpp-course-master/bigint/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/big_integer_testing.dir/gtest/gtest_main.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/big_integer_testing.dir/gtest/gtest_main.cc.o -c /home/tolisso/Programming/cpp_course/big_integer_HW3_tests[1]/cpp-course-master/bigint/gtest/gtest_main.cc
 
 CMakeFiles/big_integer_testing.dir/gtest/gtest_main.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/big_integer_testing.dir/gtest/gtest_main.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tolisso/Programming/cpp_course/big_integer_HW3_tests/cpp-course-master/bigint/gtest/gtest_main.cc > CMakeFiles/big_integer_testing.dir/gtest/gtest_main.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tolisso/Programming/cpp_course/big_integer_HW3_tests[1]/cpp-course-master/bigint/gtest/gtest_main.cc > CMakeFiles/big_integer_testing.dir/gtest/gtest_main.cc.i
 
 CMakeFiles/big_integer_testing.dir/gtest/gtest_main.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/big_integer_testing.dir/gtest/gtest_main.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tolisso/Programming/cpp_course/big_integer_HW3_tests/cpp-course-master/bigint/gtest/gtest_main.cc -o CMakeFiles/big_integer_testing.dir/gtest/gtest_main.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tolisso/Programming/cpp_course/big_integer_HW3_tests[1]/cpp-course-master/bigint/gtest/gtest_main.cc -o CMakeFiles/big_integer_testing.dir/gtest/gtest_main.cc.s
 
 # Object files for target big_integer_testing
 big_integer_testing_OBJECTS = \
@@ -125,7 +125,7 @@ big_integer_testing: CMakeFiles/big_integer_testing.dir/gtest/gtest-all.cc.o
 big_integer_testing: CMakeFiles/big_integer_testing.dir/gtest/gtest_main.cc.o
 big_integer_testing: CMakeFiles/big_integer_testing.dir/build.make
 big_integer_testing: CMakeFiles/big_integer_testing.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/tolisso/Programming/cpp_course/big_integer_HW3_tests/cpp-course-master/bigint/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable big_integer_testing"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/tolisso/Programming/cpp_course/big_integer_HW3_tests[1]/cpp-course-master/bigint/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable big_integer_testing"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/big_integer_testing.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -138,6 +138,6 @@ CMakeFiles/big_integer_testing.dir/clean:
 .PHONY : CMakeFiles/big_integer_testing.dir/clean
 
 CMakeFiles/big_integer_testing.dir/depend:
-	cd /home/tolisso/Programming/cpp_course/big_integer_HW3_tests/cpp-course-master/bigint/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/tolisso/Programming/cpp_course/big_integer_HW3_tests/cpp-course-master/bigint /home/tolisso/Programming/cpp_course/big_integer_HW3_tests/cpp-course-master/bigint /home/tolisso/Programming/cpp_course/big_integer_HW3_tests/cpp-course-master/bigint/cmake-build-debug /home/tolisso/Programming/cpp_course/big_integer_HW3_tests/cpp-course-master/bigint/cmake-build-debug /home/tolisso/Programming/cpp_course/big_integer_HW3_tests/cpp-course-master/bigint/cmake-build-debug/CMakeFiles/big_integer_testing.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/tolisso/Programming/cpp_course/big_integer_HW3_tests[1]/cpp-course-master/bigint/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/tolisso/Programming/cpp_course/big_integer_HW3_tests[1]/cpp-course-master/bigint /home/tolisso/Programming/cpp_course/big_integer_HW3_tests[1]/cpp-course-master/bigint /home/tolisso/Programming/cpp_course/big_integer_HW3_tests[1]/cpp-course-master/bigint/cmake-build-debug /home/tolisso/Programming/cpp_course/big_integer_HW3_tests[1]/cpp-course-master/bigint/cmake-build-debug /home/tolisso/Programming/cpp_course/big_integer_HW3_tests[1]/cpp-course-master/bigint/cmake-build-debug/CMakeFiles/big_integer_testing.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/big_integer_testing.dir/depend
 

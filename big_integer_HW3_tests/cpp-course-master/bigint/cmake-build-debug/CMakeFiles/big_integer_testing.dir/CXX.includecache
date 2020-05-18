@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/tolisso/Programming/cpp_course/big_integer_HW3_tests/cpp-course-master/bigint/big_integer.cpp
+/home/tolisso/Programming/cpp_course/big_integer_HW3_tests[1]/cpp-course-master/bigint/big_integer.cpp
 iostream
 -
 algorithm
@@ -16,9 +16,9 @@ sstream
 assert.h
 -
 big_integer.h
-/home/tolisso/Programming/cpp_course/big_integer_HW3_tests/cpp-course-master/bigint/big_integer.h
+/home/tolisso/Programming/cpp_course/big_integer_HW3_tests[1]/cpp-course-master/bigint/big_integer.h
 
-/home/tolisso/Programming/cpp_course/big_integer_HW3_tests/cpp-course-master/bigint/big_integer.h
+/home/tolisso/Programming/cpp_course/big_integer_HW3_tests[1]/cpp-course-master/bigint/big_integer.h
 cstddef
 -
 gmp.h
